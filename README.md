@@ -24,13 +24,13 @@ docker run --rm -p 9000:9000 -p 3000:3000 -p 3001:3001 -v `pwd`/qq_app:/opt/QQ -
 ### 使用 HTTP Basic Authentication 进行鉴权 (推荐)
 
 ```bash
-docker run --name=xiaolz -d -p 9000:9000 -p 3000:3000 -p 3001:3001 -v `pwd`/qq_app:/opt/QQ -v `pwd`/qq_data:/home/user/.config/QQ -e VNC_GEOMETRY="1280x720" -e VNC_PASSWD="" -e HTTP_AUTH_USER="auth_username" -e HTTP_AUTH_PASSWD="auth_password" flyqie/docker-llonebot
+docker run --name=llonebot -d -p 9000:9000 -p 3000:3000 -p 3001:3001 -v `pwd`/qq_app:/opt/QQ -v `pwd`/qq_data:/home/user/.config/QQ -e VNC_GEOMETRY="1280x720" -e VNC_PASSWD="" -e HTTP_AUTH_USER="auth_username" -e HTTP_AUTH_PASSWD="auth_password" flyqie/docker-llonebot
 ```
 
 ### 使用 VNC 进行鉴权 (不推荐)
 
 ```bash
-docker run --name=xiaolz -d -p 9000:9000 -p 3000:3000 -p 3001:3001 -v `pwd`/qq_app:/opt/QQ -v `pwd`/qq_data:/home/user/.config/QQ -e VNC_GEOMETRY="1280x720" -e VNC_PASSWD="12345678" flyqie/docker-llonebot
+docker run --name=llonebot -d -p 9000:9000 -p 3000:3000 -p 3001:3001 -v `pwd`/qq_app:/opt/QQ -v `pwd`/qq_data:/home/user/.config/QQ -e VNC_GEOMETRY="1280x720" -e VNC_PASSWD="12345678" flyqie/docker-llonebot
 ```
 
 ## 环境变量
@@ -39,5 +39,5 @@ docker run --name=xiaolz -d -p 9000:9000 -p 3000:3000 -p 3001:3001 -v `pwd`/qq_a
 
 * **`HTTP_AUTH_USER`** HTTP Basic Authentication 用户名
 * **`HTTP_AUTH_PASSWD`** HTTP Basic Authentication 密码
-* **`VNC_PASSWD`** 设置 VNC 密码。注意该密码不能超过 8 个字符,，超过8个字符后的所有内容均无效。
+* **`VNC_PASSWD`** 设置 VNC 密码。注意该密码不能超过 8 个字符，超过8个字符后的所有内容均无效。
 
