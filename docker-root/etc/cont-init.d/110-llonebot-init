@@ -1,0 +1,24 @@
+#!/usr/bin/with-contenv /bin/bash
+
+set -x
+set -e
+
+if [ -f /opt/QQ/.first_boot ]; then
+    echo "not first boot, skip"
+else
+    echo "Install QQ ..."
+	dpkg -i /tmp/linux_qq.deb
+	mkdir -p /opt/QQ/resources/app/LiteLoader
+	sed -i "1i\require('/opt/QQ/resources/app/LiteLoader/');" /opt/QQ/resources/app/app_launcher/index.js
+	unzip /tmp/LiteLoaderQQNT.zip -d /opt/QQ/resources/app/LiteLoader/
+	mkdir -p /opt/QQ/resources/app/LiteLoader/plugins/LLOneBot
+	unzip /tmp/LLOneBot.zip -d /opt/QQ/resources/app/LiteLoader/plugins/LLOneBot/
+	touch /opt/QQ/.first_boot
+fi
+
+rm -rf /run/dbus/pid
+mkdir -p /var/run/dbus
+chmod -R 777 /var/run/dbus
+dbus-daemon --config-file=/usr/share/dbus-1/system.conf --print-address &
+chmod -R 777 /opt/QQ/
+chmod -R 777 /home/user/.config/QQ/
