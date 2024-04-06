@@ -9,7 +9,7 @@ COPY ./docker-root /
 RUN chown root:root /tmp && \
 	chmod 1777 /tmp && \
 	apt-get update && \
-	apt-get install -y language-pack-zh-hans tzdata fontconfig fonts-wqy-zenhei && \
+	apt-get install -y wget language-pack-zh-hans tzdata fontconfig fonts-wqy-zenhei && \
 	apt-get install -y --no-install-recommends fcitx fcitx-ui-classic fcitx-pinyin && \
 	apt-get install -y \
 		dbus-user-session libgtk-3-0 libnotify4 libnss3 libxss1 \
