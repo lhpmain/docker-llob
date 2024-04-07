@@ -17,10 +17,10 @@ RUN chown root:root /tmp && \
 		libasound2 gnutls-bin libgbm1 ffmpeg
 
 RUN arch=$(arch | sed s/aarch64/arm64/ | sed s/x86_64/amd64/) && \
-	wget -O /tmp/linux_qq.deb https://dldir1.qq.com/qqfile/qq/QQNT/Linux/QQ_3.2.6_240322_${arch}_01.deb
+	wget -O /tmp/linux_qq.deb https://dldir1.qq.com/qqfile/qq/QQNT/Linux/QQ_3.2.7_240403_${arch}_01.deb
 
-RUN wget -O /tmp/LiteLoaderQQNT.zip https://github.com/LiteLoaderQQNT/LiteLoaderQQNT/releases/download/1.0.3/LiteLoaderQQNT.zip && \
-	wget -O /tmp/LLOneBot.zip https://github.com/LLOneBot/LLOneBot/releases/download/v3.20.7/LLOneBot.zip
+RUN wget -O /tmp/LiteLoaderQQNT.zip https://github.com/LiteLoaderQQNT/LiteLoaderQQNT/releases/download/1.1.0/LiteLoaderQQNT.zip && \
+	wget -O /tmp/LLOneBot.zip https://github.com/LLOneBot/LLOneBot/releases/download/v3.21.0/LLOneBot.zip
 
 RUN chsh -s /bin/bash user && \
 	mkdir -p /home/user/.fonts/ && \
