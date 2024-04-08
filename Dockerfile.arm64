@@ -1,6 +1,10 @@
 FROM flyqie/docker-novnc:latest-arm64
 
-COPY ./docker-root /
+RUN mkdir /tmp/docker-root
+COPY ./docker-root /tmp/docker-root/
+RUN chmod -R 755 /tmp/docker-root/
+RUN cp -r /tmp/docker-root/* /
+RUN rm -rf /tmp/docker-root
 
 RUN chown root:root /tmp && \
 	chmod 1777 /tmp && \
