@@ -19,7 +19,9 @@ fi
 rm -rf /run/dbus/pid
 mkdir -p /var/run/dbus
 chmod -R 777 /var/run/dbus
-dbus-daemon --config-file=/usr/share/dbus-1/system.conf --print-address &
+dbus-daemon --config-file=/usr/share/dbus-1/system.conf --print-address > /var/run/dbus/DBUS_SESSION_BUS_ADDRESS
+export DBUS_SESSION_BUS_ADDRESS=$(cat /var/run/dbus/DBUS_SESSION_BUS_ADDRESS)
+
 chmod -R 777 /opt/QQ/
 chown -R user /home/user/.config/
 chmod -R 777 /home/user/.config/QQ/
