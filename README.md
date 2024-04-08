@@ -8,13 +8,15 @@ docker-llonebot 可以使你在 Docker 容器中运行 LLOneBot。
 
 该项目修改自docker-wine-coolq及llonebot-docker， 非常感谢相关贡献者做出的开创性工作。
 
+示例均为amd64(x86_64)，如需arm64请自行替换镜像tag。
+
 ## 下载使用
 
 如果你在服务器上使用 `docker` 或者和 docker 兼容的服务，只需执行：
 
 ```bash
 docker pull flyqie/docker-llonebot
-docker run --rm -p 9000:9000 -p 3000:3000 -p 3001:3001 -v `pwd`/qq_app:/opt/QQ -v `pwd`/qq_data:/home/user/.config/QQ -e VNC_GEOMETRY="1280x720" flyqie/docker-llonebot
+docker run --rm -p 9000:9000 -p 3000:3000 -p 3001:3001 -v `pwd`/qq_app:/opt/QQ -v `pwd`/qq_data:/home/user/.config/QQ -e VNC_GEOMETRY="1280x720" flyqie/docker-llonebot:latest-amd64
 ```
 
 即可运行一个 docker-llonebot 实例。运行后，访问 `http://你的IP:9000` 可以打开 noVNC 页面，输入 `MAX8char` 作为密码后即可看到 LLOneBot 已经启动。
@@ -24,13 +26,13 @@ docker run --rm -p 9000:9000 -p 3000:3000 -p 3001:3001 -v `pwd`/qq_app:/opt/QQ -
 ### 使用 HTTP Basic Authentication 进行鉴权 (推荐)
 
 ```bash
-docker run --name=llonebot -d -p 9000:9000 -p 3000:3000 -p 3001:3001 -v `pwd`/qq_app:/opt/QQ -v `pwd`/qq_data:/home/user/.config/QQ -e VNC_GEOMETRY="1280x720" -e VNC_PASSWD="" -e HTTP_AUTH_USER="auth_username" -e HTTP_AUTH_PASSWD="auth_password" flyqie/docker-llonebot
+docker run --name=llonebot -d -p 9000:9000 -p 3000:3000 -p 3001:3001 -v `pwd`/qq_app:/opt/QQ -v `pwd`/qq_data:/home/user/.config/QQ -e VNC_GEOMETRY="1280x720" -e VNC_PASSWD="" -e HTTP_AUTH_USER="auth_username" -e HTTP_AUTH_PASSWD="auth_password" flyqie/docker-llonebot:latest-amd64
 ```
 
 ### 使用 VNC 进行鉴权 (不推荐)
 
 ```bash
-docker run --name=llonebot -d -p 9000:9000 -p 3000:3000 -p 3001:3001 -v `pwd`/qq_app:/opt/QQ -v `pwd`/qq_data:/home/user/.config/QQ -e VNC_GEOMETRY="1280x720" -e VNC_PASSWD="12345678" flyqie/docker-llonebot
+docker run --name=llonebot -d -p 9000:9000 -p 3000:3000 -p 3001:3001 -v `pwd`/qq_app:/opt/QQ -v `pwd`/qq_data:/home/user/.config/QQ -e VNC_GEOMETRY="1280x720" -e VNC_PASSWD="12345678" flyqie/docker-llonebot:latest-amd64
 ```
 
 ## 环境变量

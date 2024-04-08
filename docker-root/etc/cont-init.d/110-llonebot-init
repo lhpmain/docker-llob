@@ -21,4 +21,5 @@ mkdir -p /var/run/dbus
 chmod -R 777 /var/run/dbus
 dbus-daemon --config-file=/usr/share/dbus-1/system.conf --print-address &
 chmod -R 777 /opt/QQ/
+chown -R user /home/user/.config/
 chmod -R 777 /home/user/.config/QQ/
