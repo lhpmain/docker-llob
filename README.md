@@ -17,7 +17,7 @@ docker-llonebot 可以使你在 Docker 容器中运行 LLOneBot。
 如果你在服务器上使用 `docker` 或者和 docker 兼容的服务，只需执行：
 
 ```bash
-docker run --rm -p 9000:9000 -p 3000:3000 -p 3001:3001 -v `pwd`/qq_app:/opt/QQ -v `pwd`/qq_data:/home/user/.config/QQ -e VNC_GEOMETRY="1280x720" flyqie/docker-llonebot:latest-amd64
+docker run -it --rm -p 9000:9000 -p 3000:3000 -p 3001:3001 -v `pwd`/qq_app:/opt/QQ -v `pwd`/qq_data:/home/user/.config/QQ -e VNC_GEOMETRY="1280x720" flyqie/docker-llonebot:latest-amd64
 ```
 
 即可运行一个 docker-llonebot 实例。运行后，访问 `http://你的IP:9000` 可以打开 noVNC 页面，输入 `MAX8char` 作为密码后即可看到 LLOneBot 已经启动。
