@@ -10,6 +10,8 @@ docker-llonebot 可以使你在 Docker 容器中运行 LLOneBot。
 
 示例均为amd64(x86_64)，如需arm64请自行替换镜像tag。
 
+镜像内已预装ffmpeg，路径为`/usr/bin/ffmpeg`，可直接使用。
+
 ## 下载使用
 
 如果你在服务器上使用 `docker` 或者和 docker 兼容的服务，只需执行：
