@@ -32,7 +32,7 @@ jobs:
           file: ./Dockerfile.arm64
           platforms: linux/arm64
           push: true
-          tags: flyqie/docker-llonebot:latest-arm64, flyqie/docker-llonebot:arm64
+          tags: dockerguiimages/docker-llonebot:latest-arm64, dockerguiimages/docker-llonebot:arm64
       -
         name: Build and push amd64
         uses: docker/build-push-action@v4
@@ -41,4 +41,4 @@ jobs:
           file: ./Dockerfile.amd64
           platforms: linux/amd64
           push: true
-          tags: flyqie/docker-llonebot:latest, flyqie/docker-llonebot:latest-amd64, flyqie/docker-llonebot:amd64
+          tags: dockerguiimages/docker-llonebot:latest, dockerguiimages/docker-llonebot:latest-amd64, dockerguiimages/docker-llonebot:amd64
