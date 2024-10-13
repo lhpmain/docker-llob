@@ -1,0 +1,28 @@
+#!/command/with-contenv /bin/bash
+
+set -x
+set -e
+
+mkdir -p /opt/QQ/resources/app/LiteLoader/plugins/LLOneBot
+mkdir -p /opt/QQ/resources/app/LiteLoader/plugins/whale
+
+# 安装 LiteLoader
+if [ ! -f "/opt/QQ/resources/app/LiteLoader/package.json" ]; then
+    unzip /tmp/LiteLoaderQQNT.zip -d /opt/QQ/resources/app/LiteLoader/
+fi
+
+# 安装 LLOneBot、whale
+if [ ! -f "/opt/QQ/resources/app/LiteLoader/plugins/LLOneBot/manifest.json" ]; then
+    unzip /tmp/LLOneBot.zip -d /opt/QQ/resources/app/LiteLoader/plugins/LLOneBot/
+    unzip /tmp/whale.zip -d /opt/QQ/resources/app/LiteLoader/plugins/whale/
+fi
+
+rm -rf /run/dbus/pid
+mkdir -p /var/run/dbus
+chmod -R 777 /var/run/dbus
+dbus-daemon --config-file=/usr/share/dbus-1/system.conf --print-address > /var/run/dbus/DBUS_SESSION_BUS_ADDRESS
+export DBUS_SESSION_BUS_ADDRESS=$(cat /var/run/dbus/DBUS_SESSION_BUS_ADDRESS)
+
+chmod -R 777 /opt/QQ/
+chown -R user /home/user/.config/
+chmod -R 777 /home/user/.config/QQ/

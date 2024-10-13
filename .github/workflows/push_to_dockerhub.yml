@@ -1,9 +1,10 @@
-name: push_to_dockerhub_ci
+name: push_to_dockerhub
 
 on:
   push:
     branches:
       - 'master'
+  workflow_dispatch:
 
 jobs:
   docker:
@@ -12,6 +13,8 @@ jobs:
       -
         name: Checkout
         uses: actions/checkout@v3
+        with:
+          submodules: recursive
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -32,7 +35,7 @@ jobs:
           file: ./Dockerfile.arm64
           platforms: linux/arm64
           push: true
-          tags: dockerguiimages/docker-llonebot:latest-arm64, dockerguiimages/docker-llonebot:arm64
+          tags: dockerguiimages/docker-llob:latest-arm64, dockerguiimages/docker-llob:arm64
       -
         name: Build and push amd64
         uses: docker/build-push-action@v4
@@ -41,4 +44,4 @@ jobs:
           file: ./Dockerfile.amd64
           platforms: linux/amd64
           push: true
-          tags: dockerguiimages/docker-llonebot:latest, dockerguiimages/docker-llonebot:latest-amd64, dockerguiimages/docker-llonebot:amd64
+          tags: dockerguiimages/docker-llob:latest, dockerguiimages/docker-llob:latest-amd64, dockerguiimages/docker-llob:amd64
