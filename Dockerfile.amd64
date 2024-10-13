@@ -1,8 +1,5 @@
 FROM dockerguiimages/docker-novnc:latest-amd64-2204
 
-RUN sed -i 's@//.*archive.ubuntu.com@//mirrors.ustc.edu.cn@g' /etc/apt/sources.list
-RUN sed -i 's/security.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
-
 RUN mkdir /tmp/docker-root
 COPY ./docker-root /tmp/docker-root/
 RUN chmod -R 755 /tmp/docker-root/
