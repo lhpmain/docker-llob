@@ -8,13 +8,22 @@ mkdir -p /opt/QQ/resources/app/LiteLoader/plugins/whale
 
 # 安装 LiteLoader
 if [ ! -f "/opt/QQ/resources/app/LiteLoader/package.json" ]; then
-    unzip /tmp/LiteLoaderQQNT.zip -d /opt/QQ/resources/app/LiteLoader/
+	unzip /tmp/LiteLoaderQQNT.zip -d /opt/QQ/resources/app/LiteLoader/
 fi
 
-# 安装 LLOneBot、whale
+# 安装 LLOneBot
 if [ ! -f "/opt/QQ/resources/app/LiteLoader/plugins/LLOneBot/manifest.json" ]; then
     unzip /tmp/LLOneBot.zip -d /opt/QQ/resources/app/LiteLoader/plugins/LLOneBot/
+fi
+
+# 安装 whale
+if [ ! -f "/opt/QQ/resources/app/LiteLoader/plugins/whale/manifest.json" ]; then
     unzip /tmp/whale.zip -d /opt/QQ/resources/app/LiteLoader/plugins/whale/
+fi
+
+# 安装 LiteLoaderQQNT-Kill-Update
+if [ ! -f "/opt/QQ/resources/app/LiteLoader/plugins/LiteLoaderQQNT-Kill-Update-0.1.5/manifest.json" ]; then
+    unzip /tmp/LiteLoaderQQNT-Kill-Update-0.1.5.zip -d /opt/QQ/resources/app/LiteLoader/plugins/
 fi
 
 rm -rf /run/dbus/pid
