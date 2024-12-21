@@ -23,7 +23,7 @@ RUN wget -O /tmp/linux_qq.deb https://dldir1.qq.com/qqfile/qq/QQNT/Linux/QQ_3.2.
 RUN apt-get install -f -y /tmp/linux_qq.deb && \
 	rm -f /tmp/linux_qq.deb && \
 	mkdir -p /opt/QQ/resources/app/LiteLoader && \
-	echo 'require(String.raw`/LiteLoader`);' > /opt/QQ/resources/app/app_launcher/llqqnt.js && \
+	echo 'require("/opt/QQ/resources/app/LiteLoader");' > /opt/QQ/resources/app/app_launcher/llqqnt.js && \
 	sed -i 's|"main": "[^"]*"|"main": "./app_launcher/llqqnt.js"|' /opt/QQ/resources/app/package.json
 
 RUN chsh -s /bin/bash user && \
